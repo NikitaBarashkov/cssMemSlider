@@ -4,14 +4,15 @@
 }
 body{
     margin: 0 auto;
-    width: 1280px;
-    height: 600px;
+    width: 100vw;
+    height: 100vh;
     background-color: #88a584
 }
 
 .content{
     background-color: #caefcd;
-    width: 640px;
+    width: 50%;
+    /* width: 640px; */
     height: 100%;
     margin: 1% auto;
     display: flex;
@@ -58,7 +59,14 @@ body{
 .slide_string{
     width: 100%;
     height: 100%;
+    
 }
+
+.slide_string{
+    transition: all 1s cubic-bezier(0.770);
+}
+
+
 .touch_button{
     position: absolute;
     left: 0;
@@ -100,6 +108,72 @@ body{
     margin-left: -75%;
 }
 
-#second_button:checked ~ .first{
-    margin-bottom: 30%;
+#first_button:checked ~ .one_img{
+    visibility: visible;
+    display: block;
+}
+
+#second_button:checked ~ .one_img{
+    visibility: collapse;
+}
+#second_button:checked ~ .two_img{
+    visibility: visible;
+}
+#third_button:checked ~ .two_img, .one_img{
+    visibility: collapse;
+}
+#third_button:checked ~ .three_img{
+    visibility: visible;
+
+}
+#fourth_button:checked ~ .three_img, .one_img{
+
+    display: none;
+}
+#fourth_button:checked ~ .four_img{
+    visibility: visible;
+}
+
+
+.slide_string{
+    padding: 0px 0px 20px 20px;
+    position: absolute;
+    top: 90%;
+    width: 25%;
+    visibility: collapse;
+}
+
+.one_img{
+    visibility: visible;
+}
+
+@media (max-width: 791px){
+    .content{
+        width: 80%;
+        height: 120%;
+
+    }
+    .content_images{
+        height: 80%;
+    }
+    .content_second-box{
+        display: flex;
+        flex-direction: column-reverse;
+        
+        
+    }
+    .container_buttons{
+        display: inline-block;
+        margin-left: calc((624px - 108px) / 2);
+    }
+    .slide_string{
+        top: 110%;
+        width: 70%;
+        padding: 0% 0% 0% 6%;
+    
+    }
+    /* .content_second-box{
+        height: 3em;
+    } */
+    
 }
