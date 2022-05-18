@@ -5,7 +5,7 @@
 body{
     margin: 0 auto;
     width: 100vw;
-    height: 100vh;
+    height: 95vh;
     background-color: #88a584
 }
 
@@ -22,12 +22,10 @@ body{
 
 .content_images{
     width: 400%;
-    height: 100%;
-    margin: 20px auto;
-    
+    height: 85%;
+    margin: 20px auto 0px auto;
     display: flex;
     overflow: hidden;
- 
 }
 
 .slider{
@@ -42,8 +40,9 @@ body{
 
 .content_second-box{
     display: flex;
+    justify-content: space-around;
     background-color: #caefcd;
-    height: 60px;
+    height: 20%;
 
 }
 .content_second-box__string{
@@ -51,15 +50,14 @@ body{
     flex-direction: column;
     overflow: hidden;
     width: 70%;
-    height: 100%;
-    margin: 0px 0px 10px 0px;
+    height: 400%;
 }
 .slide_string{
     width: 100%;
-    height: 100%;
+    height: 25%;
     transition: left .5s .5s;
+    overflow: hidden;
 }
-
 
 .touch_button{
     position: absolute;
@@ -67,98 +65,136 @@ body{
     visibility: collapse;   
 }
 
-.label_for_button{
-    width: 5%;
-    min-height: 30px;
-    border-radius: 100px;
-    background-color: black;
-    position: relative;
-    left: 20%;
-    top: 35 px;   
+.container_buttons{
+    display: flex;
+    gap: 1rem;
+    /* margin: auto auto; */
 }
 
-.label_for_button:hover{
+.label_for_button > div{
+    width: 1.3em;
+    height: 1.3em;
+    border-radius: 100px;
+    background-color: black;
+    padding: 3px;
+}
+
+#first_button:checked ~ .content_second-box > .content_second-box__buttons > .container_buttons > .label_for_button:nth-of-type(1) > div{
+    background-color: #2c976f; 
+    border-radius: 5px;
+    transition: all 0.8s;
+}
+#second_button:checked ~ .content_second-box > .content_second-box__buttons > .container_buttons > .label_for_button:nth-of-type(2) > div{
+    background-color: #2c976f; 
+    border-radius: 5px;
+    transition: all 0.8s;
+}
+#third_button:checked ~ .content_second-box > .content_second-box__buttons > .container_buttons > .label_for_button:nth-of-type(3) > div{
+    background-color: #2c976f; 
+    border-radius: 5px;
+    transition: all 0.8s;
+}
+#fourth_button:checked ~ .content_second-box > .content_second-box__buttons > .container_buttons > .label_for_button:nth-of-type(4) > div{
+    background-color: #2c976f; 
+    border-radius: 5px;
+    transition: all 0.8s;
+}
+.label_for_button > div:hover{
     cursor: pointer;
     background-color: aliceblue;
     color: aliceblue;
 }
 
-.label_for_button:focus-visible{
-    background-color: blueviolet;
+.label_for_button > div:active{
+    background-color: #88a584;
+    border: 2px solid #666;
 }
 
-#first_button:checked ~ .num1{
+#first_button:checked ~ .content_images > .num1{
     margin-left: 0%;
+    transition: 0.7s;
 }
-#second_button:checked ~ .num1{
+#second_button:checked ~ .content_images > .num1{
     margin-left: -25%;
+    transition: 0.7s;
+    
 }
-#third_button:checked ~ .num1{
+#third_button:checked ~ .content_images > .num1{
     margin-left: -50%;
+    transition: 0.7s;
 }
-#fourth_button:checked ~ .num1{
+#fourth_button:checked ~ .content_images > .num1{
     margin-left: -75%;
+    transition: 0.7s;
 }
 
-#first_button:checked ~ .one_img{
-    visibility: visible;
-    display: block;
+#first_button:checked ~ .content_second-box > .content_second-box__string > .one_img{
+    margin-top: -0%;
+    transition: all 1s;
 }
-
-#second_button:checked ~ .one_img{
-    visibility: collapse;
+#second_button:checked ~ .content_second-box > .content_second-box__string > .one_img{
+    margin-top: -28%;
+    transition: all 1s;
 }
-#second_button:checked ~ .two_img{
-    visibility: visible;
+#third_button:checked ~ .content_second-box > .content_second-box__string > .one_img{
+    margin-top: -60%;
+    transition: all 1s;
 }
-#third_button:checked ~ .two_img, .one_img{
-    visibility: collapse;
-}
-#third_button:checked ~ .three_img{
-    visibility: visible;
-
-}
-#fourth_button:checked ~ .three_img, .one_img{
-
-    display: none;
-}
-#fourth_button:checked ~ .four_img{
-    visibility: visible;
+#fourth_button:checked ~ .content_second-box > .content_second-box__string > .one_img{
+    margin-top: -88%;
+    transition: all 1s;
 }
 
 
-.slide_string{
-    padding: 0px 0px 20px 20px;
-    position: absolute;
-    top: 90%;
-    width: 25%;
-    visibility: collapse;
-}
-
-.one_img{
-    visibility: visible;
-}
-
-@media (max-width: 791px){
+@media screen and (max-width: 791px){
     .content{
-        width: 80%;
-        height: 120%;
+        width: 70%;
+        height: 90%;
     }
-    .content_images{
-        height: 80%;
-    }
+    
     .content_second-box{
         display: flex;
         flex-direction: column-reverse;
+        gap: 1em;
+        height: 30%;
     }
     .container_buttons{
-        display: inline-block;
-        margin-left: calc((624px - 108px) / 2);
+        margin-left: calc((100% - 20%) / 2);
+        height: 30%;
+    }
+
+    .content_second-box__string{
+        width: 100%;
+        height: 370%;
     }
     .slide_string{
-        top: 110%;
-        width: 70%;
-        padding: 0% 0% 0% 6%;
-    
+       width: 100%;
+       flex-wrap: wrap;
+       overflow: visible;
+    }
+    #first_button:checked ~ .content_second-box > .content_second-box__string > .one_img{
+        display: block;
+        
+    }
+    #first_button:checked ~ .content_second-box > .content_second-box__string > .two_img, .three_img, .four_img{
+        display: none;
+    }
+    #second_button:checked ~ .content_second-box > .content_second-box__string > .two_img{
+        display: block;
+    }
+    #second_button:checked ~ .content_second-box > .content_second-box__string > .one_img, .three_img, .four_img{
+        display: none;
+    }
+    #third_button:checked ~ .content_second-box > .content_second-box__string > .three_img{
+        display: block;
+    }
+    #third_button:checked ~ .content_second-box > .content_second-box__string > .one_img, .two_img, .four_img{
+        display: none;
+    }
+    #fourth_button:checked ~ .content_second-box > .content_second-box__string > .four_img{
+        display: block;
+    }
+    #fourth_button:checked ~ .content_second-box > .content_second-box__string > .one_img, .two_img, .three_img{
+        display: none;
     }
 }
